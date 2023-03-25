@@ -1,0 +1,18 @@
+# @file .prettierignore
+# 
+# @OID Prettier
+# @ver 2.8.6
+# @license MIT
+# @intro @en Opinionated Code Formatter
+# @homepage @en https://prettier.io/
+# @github https://github.com/prettier/prettier
+# @doc https://prettier.io/docs/en/ignore.html
+# @renew wuwenjun55555 20230322
+
+**/.git
+**/.svn
+**/.hg
+
+node_modules
+dist
+*.yaml

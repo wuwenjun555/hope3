@@ -1,3 +1,16 @@
 {
-  "recommendations": ["Vue.volar", "Vue.vscode-typescript-vue-plugin"]
+  "recommendations": [
+    "Vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "wmaurer.change-case",
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "alefragnani.project-manager",
+    "wayou.vscode-todo-highlight",
+    "stylelint.vscode-stylelint"
+  ]
 }

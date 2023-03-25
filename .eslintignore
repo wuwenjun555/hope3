@@ -1,0 +1,19 @@
+# @file .eslintrc.cjs
+# @fileoverview ESLint ECMAScript/JavaScript代码中识别和报告模式匹配的工具
+# 
+# @OID ESLint
+# @ver 8.36.0
+# @license MIT
+# @intro @en Find and fix problems in your JavaScript code
+# @homepage @en https://eslint.org
+# @homepage @cn http://eslint.cn
+# @github https://github.com/eslint/eslint
+# @doc TODO:
+# @renew wuwenjun55555 20230323
+
+**/.git
+**/.svn
+**/.hg
+
+node_modules
+dist
