@@ -921,8 +921,111 @@
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.vscode/extensions.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_006: install & config ESlint & Prettier OK"
+  /*out*******************************************************************************
+  [main a9c2c0e] hope3_006: install & config ESlint & Prettier OK
+  11 files changed, 1728 insertions(+), 3 deletions(-)
+  create mode 100644 .eslintignore
+  create mode 100644 .eslintrc.cjs
+  create mode 100644 .nvmrc
+  create mode 100644 .prettierignore
+  create mode 100644 .prettierrc.cjs
+  create mode 100644 .vscode/settings.json
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 23, done.
+  Counting objects: 100% (23/23), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (13/13), done.
+  Writing objects: 100% (15/15), 33.71 KiB | 3.37 MiB/s, done.
+  Total 15 (delta 2), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+  To https://github.com/wuwenjun555/hope3
+    3aa2b7c..a9c2c0e  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.vscode/extensions.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_006: install & config ESlint & Prettier OK"
+  /*out*******************************************************************************
+  [master 41fa4fb] hope3_006: install & config ESlint & Prettier OK
+  11 files changed, 1728 insertions(+), 3 deletions(-)
+  create mode 100644 .eslintignore
+  create mode 100644 .eslintrc.cjs
+  create mode 100644 .nvmrc
+  create mode 100644 .prettierignore
+  create mode 100644 .prettierrc.cjs
+  create mode 100644 .vscode/settings.json
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 23, done.
+  Counting objects: 100% (23/23), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (13/13), done.
+  Writing objects: 100% (15/15), 33.77 KiB | 2.41 MiB/s, done.
+  Total 15 (delta 2), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    dc202d9..41fa4fb  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### run lint first time
+
+  ```cmd
+  pnpm run lint
+  /*out*******************************************************************************
+  > hope3@0.0.0 lint D:\ASrc\hope3
+  > eslint --ext .js,.vue,.ts src --fix
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_007
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_007\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### update this doc（hope3_007）
+
+  更新现今为止的本文档。这一阶段完成了代码检查和格式化工具的实际执行验证。  
+  部分代码在lint命令执行后已经按照规则自动修改了。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_007）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_007: pnpm run lint OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -932,7 +1035,7 @@
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_006: install & config ESlint & Prettier OK"
+  git commit -m "hope3_007: pnpm run lint OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
