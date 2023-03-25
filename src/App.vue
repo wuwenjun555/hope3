@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import HelloWorld from './components/HelloWorld.vue'
+  const appTitle = import.meta.env.VITE_APP_TITLE
 </script>
 
 <template>
@@ -12,6 +13,7 @@
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <h1>{{ appTitle }}</h1>
 </template>
 
 <style scoped>

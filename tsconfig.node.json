@@ -5,5 +5,9 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts"]
+  // 只有同时加入 "src/vite-env.d.ts" 才能使vite.config.ts中能使用src/vite-env.d.ts中的全局类型
+  "include": [
+    "vite.config.ts",
+    "src/vite-env.d.ts"
+  ]
 }

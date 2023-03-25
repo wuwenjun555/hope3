@@ -634,7 +634,8 @@
   - @typescript-eslint/eslint-plugin 作为ESLint默认规则的补充，提供了一些额外的适用于typescript语法的规则
   - eslint-plugin-vue 用于Eslint识别vue文件
 
-  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这4个工具，以及对应着更新了pnpm-lock.yaml。
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这4个工具，  
+  以及对应着更新了pnpm-lock.yaml。
 
   ```cmd
   pnpm i eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-vue -D
@@ -674,7 +675,8 @@
   - eslint-config-prettier 禁用eslint中与prettier有冲突的代码格式化规则
   - eslint-plugin-prettier 执行eslint检查和自动修复的时候使用prettier的代码格式化规则
 
-  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这4个工具，以及对应着更新了pnpm-lock.yaml。
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这4个工具，  
+  以及对应着更新了pnpm-lock.yaml。
 
   ```cmd
   pnpm i prettier eslint-config-prettier eslint-plugin-prettier -D
@@ -1024,8 +1026,751 @@
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components/HelloWorld.vue', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_007: pnpm run lint OK"
+  /*out*******************************************************************************
+  [main cb55f8d] hope3_007: pnpm run lint OK
+  3 files changed, 124 insertions(+), 22 deletions(-)
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 15, done.
+  Counting objects: 100% (15/15), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (6/6), done.
+  Writing objects: 100% (8/8), 1.38 KiB | 470.00 KiB/s, done.
+  Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+  To https://github.com/wuwenjun555/hope3
+    a9c2c0e..cb55f8d  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components/HelloWorld.vue', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_007: pnpm run lint OK"
+  /*out*******************************************************************************
+  [master facb152] hope3_007: pnpm run lint OK
+  3 files changed, 124 insertions(+), 22 deletions(-)
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 15, done.
+  Counting objects: 100% (15/15), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (6/6), done.
+  Writing objects: 100% (8/8), 1.38 KiB | 704.00 KiB/s, done.
+  Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    41fa4fb..facb152  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### new .\.env
+
+  ```ini
+  ~ VSCode new .\.env
+  /*in*******************************************************************************
+  # .env 所有情况下都会加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  # APP标题
+  VITE_APP_TITLE = hope3
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.local
+
+  ```ini
+  ~ VSCode new .\.env.local
+  /*in*******************************************************************************
+  # .env.local 所有情况下都会加载，但会被 git 忽略
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  # APP标题
+  VITE_APP_TITLE = hope3（local）
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-local
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.ut
+
+  ```ini
+  ~ VSCode new .\.env.ut
+  /*in*******************************************************************************
+  #.env.ut 只在指定模式【UT（Unit Test（单元测试模式））】下加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  NODE_ENV = ut
+
+  # APP标题
+  VITE_APP_TITLE = hope3（ut）
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-ut
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.dev
+
+  ```ini
+  ~ VSCode new .\.env.dev
+  /*in*******************************************************************************
+  #.env.dev 只在指定模式【DEV（development（开发模式））≈ITA】下加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  # NODE_ENV = development
+  NODE_ENV = dev
+
+  # APP标题
+  VITE_APP_TITLE = hope3（dev）
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-dev
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.it
+
+  ```ini
+  ~ VSCode new .\.env.it
+  /*in*******************************************************************************
+  #.env.it 只在指定模式【IT（Integration Test（集成测试模式））≈ITB】下加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  NODE_ENV = it
+
+  # APP标题
+  VITE_APP_TITLE = hope3（it）
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-it
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.st
+
+  ```ini
+  ~ VSCode new .\.env.st
+  /*in*******************************************************************************
+  #.env.st 只在指定模式【ST（System Test（系统测试模式））≈ITC】下加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  NODE_ENV = st
+
+  # APP标题
+  VITE_APP_TITLE = hope3（st）
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-st
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.staging
+
+  ```ini
+  ~ VSCode new .\.env.staging
+  /*in*******************************************************************************
+  #.env.staging 只在指定模式【UAT（User Acceptance Test（用户验收测试模式））】下加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  NODE_ENV = staging
+
+  # APP标题
+  VITE_APP_TITLE = hope3（staging）
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-staging
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = true
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = false
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.env.prod
+
+  ```ini
+  ~ VSCode new .\.env.prod
+  /*in*******************************************************************************
+  #.env.prod 只在指定模式【Production（生产模式）】下加载 
+
+  # ★注意事项：
+  # 1.因本env文件中所有设定值都是字符串，得到的boolean变量是'true'/'false'，不能直接用于判读。可用VITE_KEY === 'true'判断。
+  # 2.对于 Vue 模板或其他编译到 JavaScript 字符串的 HTML，你可以使用 <wbr> 标签，例如：import.meta.<wbr>env.MODE
+  # 3.为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE_ 为前缀的变量才会暴露给经过 vite 处理的代码。
+  #   例：如下两个变量
+  #       VITE_SOME_KEY=123
+  #       DB_PASSWORD=foobar
+  #   调用结果：
+  #       console.log(import.meta.env.VITE_SOME_KEY) // 123
+  #       console.log(import.meta.env.DB_PASSWORD) // undefined
+  # 4.想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
+  #   例：
+  #       KEY=123
+  #       NEW_KEY1=test$foo   # test
+  #       NEW_KEY2=test\$foo  # test$foo
+  #       NEW_KEY3=test$KEY   # test123
+  # 5.安全注意事项
+  #   5.1.【.env.*.local】文件应是本地的，可包含敏感变量。应该将【.local】添加到【.gitignore】中以避免它们被 git 检入。
+  #   5.2.由于任何暴露给 Vite 源码的变量最终都将出现在客户端包中，VITE_* 变量应该不包含任何敏感信息。
+  # 6.环境加载优先级
+  #   6.1.一份用于指定模式的文件（例如【.env.production】）会比通用形式的优先级更高（例如【.env】）。
+  #   6.2.【.env】 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
+  # 7.以上为部分注意事项，更多详情请参照Vite官方中文文档：
+  #   https://cn.vitejs.dev/guide/env-and-mode.html
+
+  # NODE_ENV = production
+  NODE_ENV = prod
+
+  # APP标题
+  VITE_APP_TITLE = hope3
+
+  # axios 的 baseURL 参数
+  VITE_APP_API_BASE_URL = /api-prod
+
+  # 是否在打包时生成 sourcemap
+  VITE_BUILD_SOURCEMAP = false
+
+  # 是否在打包时删除 console 代码
+  VITE_BUILD_DROP_CONSOLE = true
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add build:* cmd into .\package.json
+
+  ```cmd
+  ~ VSCode edit .\package.json
+  /*edit*******************************************************************************
+  *    "build": "vue-tsc && vite build",
+  +    "build:dev": "vue-tsc && vite build --mode dev",
+  +    "build:ut": "vue-tsc && vite build --mode ut",
+  +    "build:it": "vue-tsc && vite build --mode it",
+  +    "build:st": "vue-tsc && vite build --mode st",
+  +    "build:staging": "vue-tsc && vite build --mode staging",
+  +    "build:prod": "vue-tsc && vite build --mode prod",
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add [.env.*] const value into .\src\vite-env.d.ts
+
+  ```cmd
+  ~ VSCode edit .\src\vite-env.d.ts
+  /*edit*******************************************************************************
+  */// <reference types="vite/client" />
+
+  +/// 本文件为代码中获取.env[mode] 文件中以【VITE_】为前缀的用户自定义环境变量的 TypeScript 智能提示。
+  +/// 注意：vite2为src/env.d.ts，vite3已改为src/vite-env.d.ts
+  +interface ImportMetaEnv {
+  +  readonly VITE_APP_TITLE: string
+  +  readonly VITE_APP_API_BASE_URL: string
+  +  readonly VITE_BUILD_SOURCEMAP: string
+  +  // 更多环境变量...
+  +}
+  +
+  +interface ImportMeta {
+  +  readonly env: ImportMetaEnv
+  +}
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add [vite-env.d.ts] into .\tsconfig.node.json include segment
+
+  ```json
+  ~ VSCode edit .\tsconfig.node.json
+  /*edit*******************************************************************************
+  -  "include": ["vite.config.ts"]
+  +  // 只有同时加入 "src/vite-env.d.ts" 才能使vite.config.ts中能使用src/vite-env.d.ts中的全局类型
+  +  "include": ["vite.config.ts", "src/vite-env.d.ts"]
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_008
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_008\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### install @types/node package for project develop
+
+  未添加@types/node类型定义的需要先添加。  
+  TODO: 如果不添加会怎样？影响范围？  
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i @types/node -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +2 -1
+  ++-
+  Progress: resolved 215, reused 192, downloaded 1, added 2, done
+
+  devDependencies:
+  + @types/node 18.15.9
+
+  Done in 13.9s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install terser package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i terser -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +11 -1
+  +++++++++++-
+  Progress: resolved 225, reused 202, downloaded 1, added 11, done
+
+  devDependencies:
+  + terser 5.16.8
+
+  Done in 10.8s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add [loadEnv] into .\vite.config.ts for use [.env.*] value in vite build
+
+  使用环境变量: .\vite.config.ts中通过 loadEnv加载
+
+  ```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  -import { defineConfig } from 'vite'
+  +import { defineConfig, loadEnv } from 'vite'
+  -export default defineConfig({
+  -  plugins: [vue()],
+  -})
+  +export default ({ command, mode }) => {
+  +  // 取得环境变量
+  +  const env: Partial<ImportMetaEnv> = loadEnv(mode, process.cwd())
+  +  return defineConfig({
+  +    plugins: [vue()],
+  +    define: {
+  +      'process.env': env,
+  +    },
+  +    build: {
+  +      outDir: 'dist',
+  +      sourcemap: env.VITE_BUILD_SOURCEMAP === 'true',
+  +      // minify默认esbuild，esbuild模式下terserOptions将失效
+  +      // vite3变化：Terser 现在是一个可选依赖，如果你使用的是 build.minify: 'terser'，你需要手动安装它 `npm add -D terser`
+  +      minify: 'terser',
+  +      terserOptions: {
+  +        compress: {
+  +          keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
+  +          drop_console: env.VITE_BUILD_DROP_CONSOLE === 'true', // 去除 console
+  +          drop_debugger: true, // 去除 debugger
+  +        },
+  +      },
+  +      chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
+  +    },
+  +  })
+  +}
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add [dist\] into bk-hope3-exclude.txt
+
+  ```txt
+  ~ VSCode edit D:\ASrc\bk\bk-hope3-exclude.txt
+  /*edit*******************************************************************************
+  *node_modules\ 
+  +dist\
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_009
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_009\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### install vite-plugin-html package for project develop
+
+  使用环境变量: .\index.html 中通过vite-plugin-html加载  
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i vite-plugin-html -D
+  /*out*******************************************************************************
+   WARN  GET https://registry.npmjs.org/vite-plugin-html error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +36
+  ++++++++++++++++++++++++++++++++++++
+  Progress: resolved 261, reused 239, downloaded 0, added 36, done
+
+  devDependencies:
+  + vite-plugin-html 3.2.0
+
+  Done in 34.1s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add [createHtmlPlugin] into vite.config.ts for use [.env.*] value in vite build
+
+  使用环境变量: .\index.html 中通过vite-plugin-html加载
+
+  ```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  *import vue from '@vitejs/plugin-vue'
+  +import { createHtmlPlugin } from 'vite-plugin-html'
+  -    plugins: [vue()],
+  +    plugins: [vue(), createHtmlPlugin()],
+  ********************************************************************************/
+  ```
+
+---
+
+- ### use [.env.*] value in .\index.html
+
+  ```html
+  ~ VSCode edit .\index.html
+  /*edit*******************************************************************************
+  -    <title>Vite + Vue + TS</title>
+  +  <title>Vite + Vue + TS <%- VITE_APP_TITLE %></title>
+  ********************************************************************************/
+  ```
+
+---
+
+- ### use [.env.*] value in *.vue typescript segment
+
+  ```vue
+  ~ VSCode edit .\src\App.vue
+  /*edit*******************************************************************************
+  *import HelloWorld from './components/HelloWorld.vue'
+  +const appTitle = import.meta.env.VITE_APP_TITLE
+  *  <HelloWorld msg="Vite + Vue" />
+  +  <h1>{{ appTitle }}</h1>
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_010
+
+```cmd
+xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+```
+
+---
+
+- ### pnpm run dev for try .env
+
+  ```cmd
+  pnpm run dev
+  /*out*******************************************************************************
+  > hope3@0.0.0 dev D:\ASrc\hope3
+  > vite
+
+                                                                                                                22:30:57
+    VITE v4.2.1  ready in 3470 ms
+
+    ➜  Local:   http://localhost:5173/                                                                          22:30:57
+    ➜  Network: use --host to expose                                                                            22:30:57
+    ➜  press h to show help                                                                                     22:30:57
+  ********************************************************************************/
+  ```
+
+---
+
+- ### run project url for try .env
+
+  上一个命令启动了服务后占用了windows命令窗口，无法再入力其他命令。  
+  因此用 cmd 再开启一个新窗口，调用浏览器打卡画面，确认.env中定义的值在画面显示正常。  
+  跟之前项目代码备份比对一下，代码没有任何变化。  
+  以exit命令关闭新打开的windows命令窗口，并回到之前的windows命令窗口用 Ctrl + C 关闭服务。
+
+  ```cmd
+  cmd
+  start microsoft-edge:http://localhost:5173/
+  exit
+  Ctrl + C
+  ```
+
+---
+
+- ### update this doc（hope3_010）
+
+  更新现今为止的本文档。这一阶段完成了.env全局环境变量的工具安装和实际执行验证。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_010）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_010: config & run .env.* OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -1035,7 +1780,7 @@
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_007: pnpm run lint OK"
+  git commit -m "hope3_010: config & run .env.* OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
