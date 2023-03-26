@@ -372,7 +372,7 @@
 - ### run project url first time
 
   上一个命令启动了服务后占用了windows命令窗口，无法再入力其他命令。  
-  因此用 cmd 再开启一个新窗口，调用浏览器打卡画面，确认画面显示正常。  
+  因此用 cmd 再开启一个新窗口，调用浏览器打开画面，确认画面显示正常。  
   跟之前项目代码备份比对一下，代码没有任何变化。  
   以exit命令关闭新打开的windows命令窗口，并回到之前的windows命令窗口用 Ctrl + C 关闭服务。
 
@@ -1738,7 +1738,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
 - ### run project url for try .env
 
   上一个命令启动了服务后占用了windows命令窗口，无法再入力其他命令。  
-  因此用 cmd 再开启一个新窗口，调用浏览器打卡画面，确认.env中定义的值在画面显示正常。  
+  因此用 cmd 再开启一个新窗口，调用浏览器打开画面，确认.env中定义的值在画面显示正常。  
   跟之前项目代码备份比对一下，代码没有任何变化。  
   以exit命令关闭新打开的windows命令窗口，并回到之前的windows命令窗口用 Ctrl + C 关闭服务。
 
@@ -2112,7 +2112,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
 - ### run project url for try less
 
   上一个命令启动了服务后占用了windows命令窗口，无法再入力其他命令。  
-  因此用 cmd 再开启一个新窗口，调用浏览器打卡画面，确认less定义的值在画面显示正常。  
+  因此用 cmd 再开启一个新窗口，调用浏览器打开画面，确认less定义的值在画面显示正常。  
   跟之前项目代码备份比对一下，代码没有任何变化。  
   以exit命令关闭新打开的windows命令窗口，并回到之前的windows命令窗口用 Ctrl + C 关闭服务。
 
@@ -2143,8 +2143,301 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_011: use & run less OK"
+  /*out*******************************************************************************
+  [main b25b5ab] hope3_011: use & run less OK
+  8 files changed, 697 insertions(+), 5 deletions(-)
+  create mode 100644 src/styles/common.less
+  create mode 100644 src/styles/index.less
+  create mode 100644 src/styles/variables.less
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 21, done.
+  Counting objects: 100% (21/21), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (11/11), done.
+  Writing objects: 100% (13/13), 8.86 KiB | 1.48 MiB/s, done.
+  Total 13 (delta 7), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+  To https://github.com/wuwenjun555/hope3
+    11012d2..b25b5ab  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_011: use & run less OK"
+  /*out*******************************************************************************
+  [master 6e2da67] hope3_011: use & run less OK
+  8 files changed, 697 insertions(+), 5 deletions(-)
+  create mode 100644 src/styles/common.less
+  create mode 100644 src/styles/index.less
+  create mode 100644 src/styles/variables.less
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 21, done.
+  Counting objects: 100% (21/21), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (11/11), done.
+  Writing objects: 100% (13/13), 8.88 KiB | 1.78 MiB/s, done.
+  Total 13 (delta 7), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    7b3132c..6e2da67  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### install unplugin-auto-import package for project develop
+
+  unplugin-auto-import 插件可以自动导入常用的使用的第三方库的 API  
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i unplugin-auto-import -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +19
+  +++++++++++++++++++
+  Progress: resolved 307, reused 283, downloaded 2, added 19, done
+
+  devDependencies:
+  + unplugin-auto-import 0.15.2
+
+  Done in 8.1s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\vite.config.ts for unplugin-auto-import
+
+  ```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  *import { createHtmlPlugin } from 'vite-plugin-html'
+  +import AutoImport from 'unplugin-auto-import/vite'
+  -    plugins: [vue(), createHtmlPlugin()],
+  +    plugins: [
+  +      vue(),
+  +      createHtmlPlugin(),
+  +      AutoImport({
+  +        // global imports to register
+  +        imports: [
+  +          // presets: https://github.com/unjs/unimport/blob/main/src/presets/index.ts
+  +          'vue',
+  +          'vue-router',
+  +          // custom
+  +          {
+  +            axios: [
+  +              // default imports
+  +              ['default', 'axios'], // import { default as axios } from 'axios',
+  +            ],
+  +          },
+  +          // example type import
+  +          // {
+  +          //   from: 'vue-router',
+  +          //   imports: ['RouteLocationRaw'],
+  +          //   type: true,
+  +          // },
+  +        ],
+  +        // 使用Typescript则必须设置dts。
+  +        // 设置为在'src/'目录下生成类型文件auto-imports.d.ts解决ts报错，默认是当前目录('./'，即根目录)
+  +        // [DEL]: 为true，以防止TS类型丢失导致的TS编译报错
+  +        // [DEL]: 插件会在项目根目录生成类型文件auto-imports.d.ts确保该文件在tsconfig中被include
+  +        dts: 'src/auto-import.d.ts',
+  +        // 如果使用了eslint，需要设置 eslintrc 字段
+  +        eslintrc: {
+  +          enabled: true,
+  +          // [Default]: filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+  +          // [Default]: globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+  +        },
+  +      }),
+  +    ],
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\.eslintrc.cjs for unplugin-auto-import
+
+  ```javascript
+  ~ VSCode edit .\.eslintrc.cjs
+  /*edit*******************************************************************************
+  *    'prettier', // eslint-config-prettier 的缩写
+  +    './.eslintrc-auto-import.json',
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\src\components\HelloWorld.vue for try unplugin-auto-import
+
+  现在把import语句去掉以后，依然会提示没有import的错误信息。
+  这是因为.eslintrc-auto-import.json还没有自动生成，所以需要pnpm run dev一次。
+
+  ```typescript
+  ~ VSCode edit .\src\components\HelloWorld.vue
+  /*edit*******************************************************************************
+  -  import { ref } from 'vue'
+  +  // [DEL]: import { ref } from 'vue'
+  ********************************************************************************/
+  ```
+
+---
+
+- ### pnpm run dev for try unplugin-auto-import
+
+  本次启动服务后，.eslintrc-auto-import.json 就会自动生成，没有import的错误信息也会消失。
+
+  ```cmd
+  pnpm run dev
+  /*out*******************************************************************************
+  > hope3@0.0.0 dev D:\ASrc\hope3
+  > vite
+
+                                                                                                                11:42:51
+    VITE v4.2.1  ready in 2339 ms
+
+    ➜  Local:   http://localhost:5173/                                                                          11:42:51
+    ➜  Network: use --host to expose                                                                            11:42:51
+    ➜  press h to show help                                                                                     11:42:51
+  ********************************************************************************/
+  Ctrl + C
+  ```
+
+---
+
+- ### bk hope3_012
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_012\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### install unplugin-vue-components package for project develop
+
+  unplugin-vue-components 是一个可以自动导入Vue组件的工具。
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i unplugin-vue-components -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +1
+  +
+  Progress: resolved 308, reused 286, downloaded 0, added 1, done
+
+  devDependencies:
+  + unplugin-vue-components 0.24.1
+
+  Done in 4.8s
+  ********************************************************************************/
+  ```
+
+- ### edit .\vite.config.ts for unplugin-vue-components
+
+```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  *import AutoImport from 'unplugin-auto-import/vite'
+  +import Components from 'unplugin-vue-components/vite'
+  *      createHtmlPlugin(),
+  +      Components({
+  +        // 使用Typescript则必须设置dts。
+  +        // 设置为在'src/'目录下生成类型文件auto-imports.d.ts解决ts报错，默认是当前目录('./'，即根目录)
+  +        dts: 'src/components.d.ts',
+  +      }),
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\src\App.vue for try unplugin-vue-components
+
+```typescript
+~ VSCode edit .\src\App.vue
+/*edit*******************************************************************************
+-  import HelloWorld from './components/HelloWorld.vue'
++  // [DEL]: import HelloWorld from './components/HelloWorld.vue'
+********************************************************************************/
+```
+
+- ### pnpm run dev for try unplugin-vue-components
+
+  ```cmd
+  pnpm run dev
+  /*out*******************************************************************************
+  > hope3@0.0.0 dev D:\ASrc\hope3
+  > vite
+
+                                                                                                                11:59:18
+    VITE v4.2.1  ready in 1690 ms
+
+    ➜  Local:   http://localhost:5173/                                                                          11:59:18
+    ➜  Network: use --host to expose                                                                            11:59:18
+    ➜  press h to show help                                                                                     11:59:18
+  ********************************************************************************/
+  ```
+
+- ### run project url for try unplugin-vue-components
+
+  上一个命令启动了服务后占用了windows命令窗口，无法再入力其他命令。  
+  因此用 cmd 再开启一个新窗口，调用浏览器打开画面，确认在去掉import之后画面显示依然正常。  
+  跟之前项目代码备份比对一下，代码没有任何变化。  
+  以exit命令关闭新打开的windows命令窗口，并回到之前的windows命令窗口用 Ctrl + C 关闭服务。
+
+  ```cmd
+  cmd
+  start microsoft-edge:http://localhost:5173/
+  exit
+  Ctrl + C
+  ```
+
+---
+
+- ### bk hope3_013
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_013\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+- ### update this doc（hope3_013）
+
+  更新现今为止的本文档。这一阶段完成了将less引入项目，且执行验证了less中设定样式在画面中实际产生了效果。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_013）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_013: use & run auto import OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -2154,7 +2447,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_011: use & run less OK"
+  git commit -m "hope3_013: use & run auto import OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push

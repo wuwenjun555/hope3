@@ -2,6 +2,8 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 const pathResolve = (dir: string) => resolve(__dirname, dir)
 
@@ -10,7 +12,47 @@ export default ({ command, mode }) => {
   // 取得环境变量
   const env: Partial<ImportMetaEnv> = loadEnv(mode, process.cwd())
   return defineConfig({
-    plugins: [vue(), createHtmlPlugin()],
+    plugins: [
+      vue(),
+      createHtmlPlugin(),
+      Components({
+        // 使用Typescript则必须设置dts。
+        // 设置为在'src/'目录下生成类型文件auto-imports.d.ts解决ts报错，默认是当前目录('./'，即根目录)
+        dts: 'src/components.d.ts',
+      }),
+      AutoImport({
+        // global imports to register
+        imports: [
+          // presets: https://github.com/unjs/unimport/blob/main/src/presets/index.ts
+          'vue',
+          'vue-router',
+          // custom
+          {
+            axios: [
+              // default imports
+              ['default', 'axios'], // import { default as axios } from 'axios',
+            ],
+          },
+          // example type import
+          // {
+          //   from: 'vue-router',
+          //   imports: ['RouteLocationRaw'],
+          //   type: true,
+          // },
+        ],
+        // 使用Typescript则必须设置dts。
+        // 设置为在'src/'目录下生成类型文件auto-imports.d.ts解决ts报错，默认是当前目录('./'，即根目录)
+        // [DEL]: 为true，以防止TS类型丢失导致的TS编译报错
+        // [DEL]: 插件会在项目根目录生成类型文件auto-imports.d.ts确保该文件在tsconfig中被include
+        dts: 'src/auto-import.d.ts',
+        // 如果使用了eslint，需要设置 eslintrc 字段
+        eslintrc: {
+          enabled: true,
+          // [Default]: filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+          // [Default]: globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+        },
+      }),
+    ],
     define: {
       'process.env': env,
     },

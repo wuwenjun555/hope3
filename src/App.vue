@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import HelloWorld from './components/HelloWorld.vue'
+  // [DEL]: import HelloWorld from './components/HelloWorld.vue'
   const appTitle = import.meta.env.VITE_APP_TITLE
 </script>
 
