@@ -1,8 +1,22 @@
 {
-  // 保存时eslint自动修复错误
+  // 保存时自动处理的设定
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true, // 保存时eslint自动修复错误
+    "source.fixAll.stylelint": true // 保存时stylelint自动修复错误
   },
   //保存自动格式化
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  // 配置stylelint检查的文件类型范围
+  "stylelint.validate": ["css", "less", "postcss", "scss", "sass", "vue"],
+  "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  // 设定不带注释JSON文件和带注释JSON文件的默认格式化工具
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

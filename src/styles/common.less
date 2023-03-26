@@ -1,14 +1,14 @@
 html,
 body {
-  /* 保证画面大小始终与浏览器显示区大小一致（=画面显示区大小随着浏览器显示区变化而随时变化） */
-  width: 100%;
-  height: 100%;
+  /* 保证超出浏览器边框的画面内容不显示（不出现滚动条） */
+  overflow: hidden;
 
   /* 保证画面与浏览器边框之间无间距 */
   margin: 0;
-  
-  /* 保证超出浏览器边框的画面内容不显示（不出现滚动条） */
-  overflow: hidden;  
+
+  /* 保证画面大小始终与浏览器显示区大小一致（=画面显示区大小随着浏览器显示区变化而随时变化） */
+  width: 100%;
+  height: 100%;  
 
   /* 部分Vue项目的字体设置。参照文章：
     https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ 
@@ -27,8 +27,8 @@ body {
         'Helvetica Neue': targets pre-El Capitan versions of Mac OS X
         sans-serif: the default sans-serif fallback font
   */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
   /* 用于webkit引擎(如chrome)中设置字体的抗锯齿或者说光滑度的属性,使用后字体看起来会更清晰舒服。
       none: 无抗锯齿（对低像素的文本比较好）
@@ -61,6 +61,7 @@ body {
 
 #app {
   /* App元素左右居中显示 */
+
   /* 保证App全局高度始终与浏览器显示区高度一致（=画面显示区高度随着浏览器显示区高度变化而随时变化） */
   margin: 0 auto;
   max-width: 1280px;

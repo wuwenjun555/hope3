@@ -2436,8 +2436,665 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of '.eslintrc.cjs', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components/HelloWorld.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.eslintrc-auto-import.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/auto-import.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components.d.ts', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_013: use & run auto import OK"
+  /*out*******************************************************************************
+  [main 3dfd460] hope3_013: use & run auto import OK
+  10 files changed, 675 insertions(+), 9 deletions(-)
+  create mode 100644 .eslintrc-auto-import.json
+  create mode 100644 src/auto-import.d.ts
+  create mode 100644 src/components.d.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 26, done.
+  Counting objects: 100% (26/26), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (13/13), done.
+  Writing objects: 100% (15/15), 8.47 KiB | 1.41 MiB/s, done.
+  Total 15 (delta 7), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+  To https://github.com/wuwenjun555/hope3
+    b25b5ab..3dfd460  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of '.eslintrc.cjs', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components/HelloWorld.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.eslintrc-auto-import.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/auto-import.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components.d.ts', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_013: use & run auto import OK"
+  /*out*******************************************************************************
+  [master 638ea13] hope3_013: use & run auto import OK
+  10 files changed, 675 insertions(+), 9 deletions(-)
+  create mode 100644 .eslintrc-auto-import.json
+  create mode 100644 src/auto-import.d.ts
+  create mode 100644 src/components.d.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 26, done.
+  Counting objects: 100% (26/26), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (13/13), done.
+  Writing objects: 100% (15/15), 8.48 KiB | 2.12 MiB/s, done.
+  Total 15 (delta 7), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    6e2da67..638ea13  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### install stylelint package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i stylelint -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +98
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Progress: resolved 406, reused 382, downloaded 2, added 98, done
+
+  devDependencies:
+  + stylelint 15.3.0
+
+  Done in 17.4s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install postcss package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i postcss -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Already up to date
+  Progress: resolved 406, reused 384, downloaded 0, added 0, done
+
+  devDependencies:
+  + postcss 8.4.21
+
+  Done in 4.5s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install postcss-less package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i postcss-less -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +1
+  +
+  Progress: resolved 407, reused 385, downloaded 0, added 1, done
+
+  devDependencies:
+  + postcss-less 6.0.0
+
+  Done in 5.7s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install postcss-html package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i postcss-html -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +7
+  +++++++
+  Progress: resolved 414, reused 392, downloaded 0, added 7, done
+
+  devDependencies:
+  + postcss-html 1.5.0
+
+  Done in 7.6s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_014
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_014\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### [Deprecated] install stylelint-config-prettier package for project develop
+
+  ```cmd
+  pnpm i stylelint-config-prettier -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +1
+  +
+  Progress: resolved 415, reused 393, downloaded 0, added 1, done
+
+  devDependencies:
+  + stylelint-config-prettier 9.0.5
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-config-prettier 9.0.5
+    └── ✕ unmet peer stylelint@">= 11.x < 15": found 15.3.0
+
+  Done in 5.7s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_015
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_015\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### [Deprecated] uninstall stylelint-config-prettier package for project develop
+
+  鉴于上述安装中出现stylelint-config-prettier仅仅与stylelint@">= 11.x < 15"适配的警告。
+  stylelint-config-prettier的NPM首页中有下述描述：  
+  https://www.npmjs.com/package/stylelint-config-prettier
+  > Note
+  >
+  > As of Stylelint v15 all style-related rules have been deprecated. If you are using v15 or higher and are not making use of these deprecated rules, this plugin is no longer necessary.
+
+  并且结合stylelint官网的下述链接中版本15升级的说明。  
+  https://stylelint.io/migration-guide/to-15#deprecated-stylistic-rules  
+  stylelint版本14为止，因为没有像Prettier这样的CSS格式统一美化的包，所以包含大量CSS格式化规则。  
+  现在像Prettier这样的CSS格式化的包已经做得很好了，  
+  所以stylelint从版本15开始废弃这些格式统一美化的规则，以便更专注于CSS中的错误检查规则。  
+  因此鉴于上述理由和上述stylelint官网链接中的建议卸载stylelint-config-prettier，  
+  改装stylelint-config-standard
+
+  ```cmd
+  pnpm un stylelint-config-prettier -D
+  /*out*******************************************************************************
+   WARN  GET https://registry.npmjs.org/errno error (ECONNRESET). Will retry in 10 seconds. 2 retries left.
+  Packages: -1
+  -
+  Progress: resolved 201, reused 179, downloaded 0, added 0, done
+
+  devDependencies:
+  - stylelint-config-prettier 9.0.5
+
+  Done in 31.2s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_016
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_016\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### install stylelint-config-standard package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i stylelint-config-standard -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +2
+  ++
+  Progress: resolved 416, reused 394, downloaded 0, added 2, done
+
+  devDependencies:
+  + stylelint-config-standard 31.0.0
+
+  Done in 6.3s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install stylelint-config-recommended-less package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i stylelint-config-recommended-less -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +10
+  ++++++++++
+  Progress: resolved 426, reused 404, downloaded 0, added 10, done
+
+  devDependencies:
+  + stylelint-config-recommended-less 1.0.4
+
+  Done in 8.4s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install stylelint-config-standard-vue package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i stylelint-config-standard-vue -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +3
+  +++
+  Progress: resolved 429, reused 407, downloaded 0, added 3, done
+
+  devDependencies:
+  + stylelint-config-standard-vue 1.0.0
+
+  Done in 4.7s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install stylelint-less package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i stylelint-less -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +1
+  +
+  Progress: resolved 429, reused 407, downloaded 0, added 1, done
+
+  devDependencies:
+  + stylelint-less 1.0.6
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 5.5s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install stylelint-order package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+  
+  ```cmd
+  pnpm i stylelint-order -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +2
+  ++
+  Progress: resolved 431, reused 409, downloaded 0, added 2, done
+
+  devDependencies:
+  + stylelint-order 6.0.3
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 5.1s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\.stylelintrc.cjs
+
+  ```js
+  ~ VSCode new .\.stylelintrc.cjs
+  /*in*******************************************************************************
+  module.exports = {
+    extends: [
+      'stylelint-config-standard',
+      'stylelint-config-recommended-less',
+      'stylelint-config-standard-vue'
+    ],
+    plugins: ['stylelint-order'],
+    // 不同格式的文件指定自定义语法
+    overrides: [
+      {
+        files: ['**/*.(less|css|vue|html)'],
+        customSyntax: 'postcss-less'
+      },
+      {
+        files: ['**/*.(html|vue)'],
+        customSyntax: 'postcss-html'
+      }
+    ],
+    ignoreFiles: [
+      '**/*.js',
+      '**/*.jsx',
+      '**/*.tsx',
+      '**/*.ts',
+      '**/*.json',
+      '**/*.md',
+      '**/*.yaml'
+    ],
+    rules: {
+      'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
+      'selector-pseudo-element-no-unknown': [
+        true,
+        {
+          ignorePseudoElements: ['v-deep']
+        }
+      ],
+      'selector-pseudo-class-no-unknown': [
+        true,
+        {
+          ignorePseudoClasses: ['deep']
+        }
+      ],
+      // 指定样式的排序
+      'order/properties-order': [
+        'position',
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'z-index',
+        'display',
+        'justify-content',
+        'align-items',
+        'float',
+        'clear',
+        'overflow',
+        'overflow-x',
+        'overflow-y',
+        'padding',
+        'padding-top',
+        'padding-right',
+        'padding-bottom',
+        'padding-left',
+        'margin',
+        'margin-top',
+        'margin-right',
+        'margin-bottom',
+        'margin-left',
+        'width',
+        'min-width',
+        'max-width',
+        'height',
+        'min-height',
+        'max-height',
+        'font-size',
+        'font-family',
+        'text-align',
+        'text-justify',
+        'text-indent',
+        'text-overflow',
+        'text-decoration',
+        'white-space',
+        'color',
+        'background',
+        'background-position',
+        'background-repeat',
+        'background-size',
+        'background-color',
+        'background-clip',
+        'border',
+        'border-style',
+        'border-width',
+        'border-color',
+        'border-top-style',
+        'border-top-width',
+        'border-top-color',
+        'border-right-style',
+        'border-right-width',
+        'border-right-color',
+        'border-bottom-style',
+        'border-bottom-width',
+        'border-bottom-color',
+        'border-left-style',
+        'border-left-width',
+        'border-left-color',
+        'border-radius',
+        'opacity',
+        'filter',
+        'list-style',
+        'outline',
+        'visibility',
+        'box-shadow',
+        'text-shadow',
+        'resize',
+        'transition'
+      ]
+    }
+  }
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add stylelint cmd into package.json
+
+  ```json
+  ~ VSCode edit package.json
+  /*edit*******************************************************************************
+  *    "lint": "eslint --ext .js,.vue,.ts src --fix",
+  +    "lint:style": "stylelint \"**/*.{css,less,vue,html}\" --fix",
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_017
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_017\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+- ### run stylelint first time
+
+  ```cmd
+  pnpm run lint:style
+  /*out*******************************************************************************
+  > hope3@0.0.0 lint:style D:\ASrc\hope3
+  > stylelint "**/*.{css,less,vue,html}" --fix
+
+
+  Deprecation warnings:
+  - The "no-extra-semicolons" rule is deprecated.
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_018
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_018\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### config .\.vscode\settings.json for Stylelint
+
+  ```json
+  ~ VSCode edit .\.vscode\settings.json
+  /*edit*******************************************************************************
+  -  // 保存时eslint自动修复错误
+  +  // 保存时自动处理的设定
+  -    "source.fixAll.eslint": true
+  +    "source.fixAll.eslint": true, // 保存时eslint自动修复错误
+  +    "source.fixAll.stylelint": true, // 保存时stylelint自动修复错误
+  -  "editor.formatOnSave": true
+  +  "editor.formatOnSave": true,
+  +
+  +  // 配置stylelint检查的文件类型范围
+  +  "stylelint.validate": [
+  +    "css",
+  +    "less",
+  +    "postcss",
+  +    "scss",
+  +    "sass",
+  +    "vue"
+  +  ],
+  +  "stylelint.enable": true,
+  +  "css.validate": false,
+  +  "less.validate": false,
+  +  "scss.validate": false,
+  ********************************************************************************/
+  ```
+
+---
+
+- ### config json default formatter in VSCode
+
+  当使用 Alt + Shift + F 对json文件格式化的时候，弹出VSCode对话框，提示信息为：  
+    Configure Default Formatter  
+    There are multiple formatters for "JSON with Comments" files.One of them should be configured as default formatter.  
+  点击Configure按钮会有如下两个选项可选：  
+    ・Prettier - Code formatter   esbenp.prettier-vscode  
+    ・JSON Language Features   vscode.json-language-features  
+  如果不幸选中其中一个不想要的，想修改的时候就找不到地方了。  
+
+  第一种修改方法：  
+    点击VSCode左下角的齿轮图标的设定按钮，在弹出菜单中选Settings  
+    （或者菜单栏File -> Preferences -> Settings）  
+    在打开的设定画面的检索栏目中入力 editor.defaultFormatter  
+    设定项目被筛选为唯一一个设定项目卡片 Editor:Default Formatter 。  
+    在 Editor:Default Formatter 的后面有（Modified elsewhere）。  
+    鼠标移动到这个 （Modified elsewhere） 上的时候，会在显示的Tooltip上显示类似如下链接：  
+      The setting has been modified in the following scopes:  
+        ・ HTML > User  
+        ・ JavaScript > User  
+        ・ JSON > User  
+        ・ JSON with Comments > User  
+    这里就是已经设置在用户配置文件中的对于各种语言的默认格式化工具。  
+    点击任意其中一个，就能看到该语言的设置项目卡片。  
+    直接在卡片中的下拉框中选 None null 选项焦点离开下拉框后，会表示出下面红色背景警告：  
+      Setting has an invalid type, expected ["string","null"].Fix in JSON.  
+    鼠标移动到该卡片上，卡片左上角出现一个齿轮图标的设定按钮，点击并在弹出菜单中选Settings  
+    点击这个按钮，在弹出的菜单中选 Reset Setting 即可修复。
+
+  第二种修改方法：  
+    实际上配置信息存在下面这个文件中。  
+      C:\Users\Dell\AppData\Roaming\Code\User\settings.json  
+    例如，不带注释的JSON文件会在该文件中有如下设定：
+
+    ```json
+      "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+      }
+    ```
+
+    又如，带注释的JSON文件会在该文件中有如下设定：
+
+    ```json
+      "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    ```
+
+    可以修改成你希望的值，又或者可以完全删掉这些配置。  
+    然后找到对应的JSON文件，再次使用 Alt + Shift + F 对json文件格式化，  
+    在弹出的VSCode对话框【Configure Default Formatter】中选择自己想要的格式化工具。  
+
+    因为该设定文件是对操作系统当前用户的所有VSCode项目有效，  
+    所以格式化工具的应该根据各个项目的需要，设定在各个VSCode项目的设定文件中。  
+    用户级别的设定保留VSCode自身的格式化工具"vscode.json-language-features"。  
+    追加下面代码后，JSON文件保存或者 Alt + Shift + F 都会被自动格式化。
+
+  ```json
+  ~ VSCode edit .\.vscode\settings.json
+  /*edit*******************************************************************************
+  *  "scss.validate": false,
+  +
+  +  // 设定不带注释JSON文件和带注释JSON文件的默认格式化工具
+  +  "[json]": {
+  +    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  +  },
+  +  "[jsonc]": {
+  +    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  +  }
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_019
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_019\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### update this doc（hope3_019）
+
+  更新现今为止的本文档。这一阶段完成了将stylelint引入项目，且执行验证了lint:style对CSS相关文件的检测和格式化效果。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_019）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_019: pnpm run lint:style OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -2447,7 +3104,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_013: use & run auto import OK"
+  git commit -m "hope3_019: pnpm run lint:style OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
