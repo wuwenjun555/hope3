@@ -1,6 +1,9 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
 import { createHtmlPlugin } from 'vite-plugin-html'
+
+const pathResolve = (dir: string) => resolve(__dirname, dir)
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => {
@@ -10,6 +13,12 @@ export default ({ command, mode }) => {
     plugins: [vue(), createHtmlPlugin()],
     define: {
       'process.env': env,
+    },
+    resolve: {
+      // 这里的alias是路径别名，是运行阶段的替换路径，而tsconfig.json中的paths是编码阶段的提示，
+      alias: {
+        '@': pathResolve('src'), // path.resolve中，'./src' 等于 'src'
+      },
     },
     build: {
       outDir: 'dist',
@@ -25,6 +34,14 @@ export default ({ command, mode }) => {
         },
       },
       chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
+    },
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+          additionalData: `@import "${pathResolve('src/styles/index.less')}";`,
+        },
+      },
     },
   })
 }

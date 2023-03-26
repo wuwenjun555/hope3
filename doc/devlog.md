@@ -1769,8 +1769,382 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/vite-env.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'tsconfig.node.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.dev', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.it', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.prod', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.st', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.staging', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.ut', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_010: config & run .env.* OK"
+  /*out*******************************************************************************
+  [main 11012d2] hope3_010: config & run .env.* OK
+  15 files changed, 1423 insertions(+), 23 deletions(-)
+  create mode 100644 .env
+  create mode 100644 .env.dev
+  create mode 100644 .env.it
+  create mode 100644 .env.prod
+  create mode 100644 .env.st
+  create mode 100644 .env.staging
+  create mode 100644 .env.ut
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 30, done.
+  Counting objects: 100% (30/30), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (18/18), done.
+  Writing objects: 100% (19/19), 14.64 KiB | 2.93 MiB/s, done.
+  Total 19 (delta 12), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (12/12), completed with 6 local objects.
+  To https://github.com/wuwenjun555/hope3
+    cb55f8d..11012d2  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/vite-env.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'tsconfig.node.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.dev', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.it', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.prod', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.st', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.staging', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of '.env.ut', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_010: config & run .env.* OK"
+  /*out*******************************************************************************
+  [master 7b3132c] hope3_010: config & run .env.* OK
+  15 files changed, 1423 insertions(+), 23 deletions(-)
+  create mode 100644 .env
+  create mode 100644 .env.dev
+  create mode 100644 .env.it
+  create mode 100644 .env.prod
+  create mode 100644 .env.st
+  create mode 100644 .env.staging
+  create mode 100644 .env.ut
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 30, done.
+  Counting objects: 100% (30/30), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (18/18), done.
+  Writing objects: 100% (19/19), 14.31 KiB | 3.58 MiB/s, done.
+  Total 19 (delta 13), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    facb152..7b3132c  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### install less package for project develop
+
+  Vite 提供了对 .scss, .sass, .less, .styl 和 .stylus 文件的内置支持。  
+  没有必要为它们安装特定的 Vite 插件，但必须安装相应的预处理器依赖。  
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i less -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +17 -1
+  +++++++++++++++++-
+  Progress: resolved 277, reused 255, downloaded 0, added 17, done
+
+  devDependencies:
+  + less 4.1.3
+
+  Done in 7.3s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install scss & sass package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i sass -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +9 -1
+  +++++++++-
+  Progress: resolved 285, reused 262, downloaded 1, added 9, done
+
+  devDependencies:
+  + sass 1.60.0
+
+  Done in 7.3s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### install styl & stylus package for project develop
+
+  跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
+  以及对应着更新了pnpm-lock.yaml。
+
+  ```cmd
+  pnpm i stylus -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +4 -1
+  ++++-
+  Progress: resolved 288, reused 266, downloaded 0, added 4, done
+
+  devDependencies:
+  + stylus 0.59.0
+
+  Done in 4.1s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\src\styles\
+
+  因为一个项目中使用多种预编译工具的可能性很低，所以之后以较为轻量的less为主。
+
+  ```cmd
+  mkdir D:\ASrc\hope3\src\styles
+  ```
+
+---
+
+- ### new .\src\styles\variables.less - 自定义变量
+
+  ```less
+  ~ VSCode new .\src\styles\variables.less
+  /*in*******************************************************************************
+  @font-color: #333;
+  @border: 1px solid #d6d6d6;
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\src\styles\common.less - 公共样式
+
+  ```less
+  ~ VSCode new .\src\styles\common.less
+  /*in*******************************************************************************
+  html,
+  body {
+    /* 保证画面大小始终与浏览器显示区大小一致（=画面显示区大小随着浏览器显示区变化而随时变化） */
+    width: 100%;
+    height: 100%;
+
+    /* 保证画面与浏览器边框之间无间距 */
+    margin: 0;
+    
+    /* 保证超出浏览器边框的画面内容不显示（不出现滚动条） */
+    overflow: hidden;  
+
+    /* 部分Vue项目的字体设置。参照文章：
+      https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ 
+        Group1: Mac操作系统UI字体
+          -apple-system: targets Safari on Mac OS X and iOS
+          BlinkMacSystemFont: targets Chrome on Mac OS X
+        Group2: 其他操作系统UI字体
+          'Segoe UI': targets Windows and Windows Phone
+          'Roboto': targets Android and newer Chrome OS
+          'Oxygen': targets KDE
+          'Ubuntu': targets Ubuntu
+          'Cantarell': targets GNOME
+          'Fira Sans': targets Firefox OS
+          'Droid Sans': targets older versions of Android
+        Group3:
+          'Helvetica Neue': targets pre-El Capitan versions of Mac OS X
+          sans-serif: the default sans-serif fallback font
+    */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 
+      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+    /* 用于webkit引擎(如chrome)中设置字体的抗锯齿或者说光滑度的属性,使用后字体看起来会更清晰舒服。
+        none: 无抗锯齿（对低像素的文本比较好）
+        subpixel-antialiased: @default 次像素平滑（常见于Mac OS和MacType For Windows） 
+        antialiased: 灰度平滑抗锯齿（常用于Android和iOS等移动设备）
+    */
+    -webkit-font-smoothing: antialiased;
+
+    /* 用于FireFox中设置字体的抗锯齿或者说光滑度的属性,使用后字体看起来会更清晰舒服。
+        auto: 浏览器自动选择是否进行字体抗锯齿，通常是做灰度优化。
+        grayscale: 强制使用灰度消除锯齿渲染字体。
+    */
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    /* 所有元素使用盒子模型
+      任何一个画面html元素的表示区域被视为盒子 = 外边距（margin）+ border（边框） + 内边距（padding）+ content（内容）
+      content-box: 标准盒子模型的元素宽高 = content（内容）
+      border-box: 非标准盒子模型的元素宽高 = border（边框） + 内边距（padding）+ content（内容）
+    */
+    box-sizing: border-box;
+  }
+
+  body {
+    /* flex布局，且其中App元素上下居中显示 */
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    /* App元素左右居中显示 */
+    /* 保证App全局高度始终与浏览器显示区高度一致（=画面显示区高度随着浏览器显示区高度变化而随时变化） */
+    margin: 0 auto;
+    max-width: 1280px;
+
+    /* App全局的字体大小，颜色设定 */
+    font-size: 28px;
+    color: @font-color;
+  }
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new .\src\styles\index.less
+
+  ```less
+  ~ VSCode new .\src\styles\index.less
+  /*in*******************************************************************************
+  @import './variables.less';
+  @import './common.less';
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\src\main.ts to import
+
+  ```typescript
+  ~ VSCode edit .\src\main.ts
+  /*edit*******************************************************************************
+  -import './style.css'
+  +// [DEL]: import './style.css'
+  +import '@/styles/index.less'
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\vite.config.ts - 全局使用自定义变量
+
+  ```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  *import vue from '@vitejs/plugin-vue'
+  +import { resolve } from 'path'
+  *import { createHtmlPlugin } from 'vite-plugin-html'
+  +
+  +const pathResolve = (dir: string) => resolve(__dirname, dir)
+  *      'process.env': env,
+  *    },
+  +    resolve: {
+  +      // 这里的alias是路径别名，是运行阶段的替换路径，而tsconfig.json中的paths是编码阶段的提示，
+  +      alias: {
+  +        '@': pathResolve('src'), // path.resolve中，'./src' 等于 'src'
+  +      },
+  +    },
+  *      chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
+  *    },
+  +    css: {
+  +      preprocessorOptions: {
+  +        less: {
+  +          javascriptEnabled: true,
+  +          additionalData: `@import "${pathResolve('src/styles/index.less')}";`,
+  +        },
+  +      },
+  +    },
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_011
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_011\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### pnpm run dev for try less
+
+  ```cmd
+  pnpm run dev
+  /*out*******************************************************************************
+  > hope3@0.0.0 dev D:\ASrc\hope3
+  > vite
+
+                                                                                                                11:13:43
+    VITE v4.2.1  ready in 3797 ms
+
+    ➜  Local:   http://localhost:5173/                                                                          11:13:43
+    ➜  Network: use --host to expose                                                                            11:13:43
+    ➜  press h to show help                                                                                     11:13:43
+  ********************************************************************************/
+  ```
+
+---
+
+- ### run project url for try less
+
+  上一个命令启动了服务后占用了windows命令窗口，无法再入力其他命令。  
+  因此用 cmd 再开启一个新窗口，调用浏览器打卡画面，确认less定义的值在画面显示正常。  
+  跟之前项目代码备份比对一下，代码没有任何变化。  
+  以exit命令关闭新打开的windows命令窗口，并回到之前的windows命令窗口用 Ctrl + C 关闭服务。
+
+  ```cmd
+  cmd
+  start microsoft-edge:http://localhost:5173/
+  exit
+  Ctrl + C
+  ```
+
+---
+
+- ### update this doc（hope3_011）
+
+  更新现今为止的本文档。这一阶段完成了将less引入项目，且执行验证了less中设定样式在画面中实际产生了效果。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_011）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_011: use & run less OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -1780,7 +2154,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_010: config & run .env.* OK"
+  git commit -m "hope3_011: use & run less OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
