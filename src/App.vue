@@ -14,6 +14,7 @@
   </div>
   <HelloWorld msg="Vite + Vue" />
   <h1>{{ appTitle }}</h1>
+  <router-view />
 </template>
 
 <style scoped>

@@ -632,7 +632,7 @@
   - eslint 插件化可组装的JavaScript和JSX检查工具
   - @typescript-eslint/parser 因ESLint默认的语法解析器Espree无法解析部分typescript，以此解析器替换
   - @typescript-eslint/eslint-plugin 作为ESLint默认规则的补充，提供了一些额外的适用于typescript语法的规则
-  - eslint-plugin-vue 用于Eslint识别vue文件
+  - eslint-plugin-vue Vue官方出品的ESLint plugin，用于Eslint识别和检测vue文件。
 
   跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这4个工具，  
   以及对应着更新了pnpm-lock.yaml。
@@ -2646,7 +2646,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   现在像Prettier这样的CSS格式化的包已经做得很好了，  
   所以stylelint从版本15开始废弃这些格式统一美化的规则，以便更专注于CSS中的错误检查规则。  
   因此鉴于上述理由和上述stylelint官网链接中的建议卸载stylelint-config-prettier，  
-  改装stylelint-config-standard
+  改装stylelint-config-standard（stylelint-config-standard 是Stylelint的标准可共享配置规则）。
 
   ```cmd
   pnpm un stylelint-config-prettier -D
@@ -2697,6 +2697,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
 
 - ### install stylelint-config-recommended-less package for project develop
 
+  stylelint-config-recommended-less 定义了less的推荐可共享配置规则。
   跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
   以及对应着更新了pnpm-lock.yaml。
 
@@ -2741,6 +2742,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
 
 - ### install stylelint-less package for project develop
 
+  stylelint-less 是stylelint-config-recommended-less的依赖包，是less的stylelint规则集合。
   跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
   以及对应着更新了pnpm-lock.yaml。
 
@@ -2768,6 +2770,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
 
 - ### install stylelint-order package for project develop
 
+  stylelint-order 指定统一的样式书写的顺序。
   跟之前项目代码备份比对一下，仅在package.json的devDependencies中追加这个工具，  
   以及对应着更新了pnpm-lock.yaml。
   
@@ -3093,8 +3096,193 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/style.css', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_019: pnpm run lint:style OK"
+  /*out*******************************************************************************
+  [main 34b109f] hope3_019: pnpm run lint:style OK
+  9 files changed, 1764 insertions(+), 32 deletions(-)
+  create mode 100644 .stylelintrc.cjs
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 28, done.
+  Counting objects: 100% (28/28), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (14/14), done.
+  Writing objects: 100% (15/15), 20.16 KiB | 2.52 MiB/s, done.
+  Total 15 (delta 8), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (8/8), completed with 8 local objects.
+  To https://github.com/wuwenjun555/hope3
+    3dfd460..34b109f  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/style.css', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_019: pnpm run lint:style OK"
+  /*out*******************************************************************************
+  [master d932110] hope3_019: pnpm run lint:style OK
+  9 files changed, 1764 insertions(+), 32 deletions(-)
+  create mode 100644 .stylelintrc.cjs
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 28, done.
+  Counting objects: 100% (28/28), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (14/14), done.
+  Writing objects: 100% (15/15), 20.15 KiB | 2.52 MiB/s, done.
+  Total 15 (delta 8), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    638ea13..d932110  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### install vue-router@4 package for project develop
+
+  ```cmd
+  pnpm i vue-router
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +2
+  ++
+  Progress: resolved 433, reused 411, downloaded 0, added 0, done
+
+  dependencies:
+  + vue-router 4.1.6
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 10s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new routers
+
+  ```cmd
+  mkdir D:\ASrc\hope3\src\router
+  ~ VSCode new .\src\router\index.ts
+  /*in*******************************************************************************
+  import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+
+  export const routes: Array<RouteRecordRaw> = [
+    {
+      path: '/',
+      name: 'app',
+      meta: {
+        title: 'App',
+      },
+      component: () => import('@/App.vue'),
+    },
+    // 替代vue2中的'*'通配符路径
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+  ]
+
+  const router = createRouter({
+    history: createWebHashHistory(),
+    routes,
+  })
+
+  export default router
+  ********************************************************************************/
+  ```
+
+---
+
+- ### config .\tsconfig.json to add src alias
+
+  创建 index.ts 并打开后，会发现 import('@/App.vue') 提示找不到 App 组件。
+  需要 tsconfig.json 中追加配置 baseUrl 和 src 的别名 @ 才可以。
+
+  ```cmd
+  ~ VSCode edit .\tsconfig.json
+  /*edit*******************************************************************************
+  *    "skipLibCheck": true,
+  +    "baseUrl": "./",
+  +    "paths": {
+  +      "@/*": ["src/*"]
+  +    }
+  ********************************************************************************/
+  ```
+
+---
+
+- ### mount routers
+
+  ```cmd
+  ~ VSCode edit .\src\main.ts
+  /*edit*******************************************************************************
+  *import App from './App.vue'
+  +import router from '@/router'
+  -createApp(App).mount('#app')
+  +const app = createApp(App)
+  +
+  +app.use(router)
+  +
+  +app.mount('#app')
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add router view
+
+  ```cmd
+  ~ VSCode edit .\src\App.vue
+  /*edit*******************************************************************************
+  *  <h1>{{ appTitle }}</h1>
+  +  <router-view />
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_020
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_020\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### update this doc（hope3_020）
+
+  更新现今为止的本文档。这一阶段完成了将vue-router引入项目。  
+  虽然因为目前整个项目仅有App.vue这一个组件，但是通过App组件中嵌套自身验证了vue-router有效可用。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_020）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_020: add vue-route OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -3104,7 +3292,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_019: pnpm run lint:style OK"
+  git commit -m "hope3_020: add vue-route OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
