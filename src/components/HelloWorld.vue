@@ -1,9 +1,11 @@
 <script setup lang="ts">
+  import { useCounterStore } from '@/stores/counter'
   // [DEL]: import { ref } from 'vue'
 
   defineProps<{ msg: string }>()
 
   const count = ref(0)
+  const store = useCounterStore()
 </script>
 
 <template>
@@ -11,6 +13,8 @@
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="store.increment()">pinia store {{ store.count }}</button>
+    <span>double {{ store.doubleCount }}</span>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR

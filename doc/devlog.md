@@ -3521,8 +3521,210 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of '.eslintrc-auto-import.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/auto-import.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/router/index.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/pages/About.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/pages/Home.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/pages/index.ts', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_024: try vue-route OK"
+  /*out*******************************************************************************
+  [main d4dd9a4] hope3_024: try vue-route OK
+  6 files changed, 251 insertions(+)
+  create mode 100644 src/pages/About.vue
+  create mode 100644 src/pages/Home.vue
+  create mode 100644 src/pages/index.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 19, done.
+  Counting objects: 100% (19/19), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (8/8), done.
+  Writing objects: 100% (12/12), 2.69 KiB | 306.00 KiB/s, done.
+  Total 12 (delta 5), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+  To https://github.com/wuwenjun555/hope3
+    873d565..d4dd9a4  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of '.eslintrc-auto-import.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/auto-import.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/router/index.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/pages/About.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/pages/Home.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/pages/index.ts', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_024: try vue-route OK"
+  /*out*******************************************************************************
+  [master 4efdd4a] hope3_024: try vue-route OK
+  6 files changed, 251 insertions(+)
+  create mode 100644 src/pages/About.vue
+  create mode 100644 src/pages/Home.vue
+  create mode 100644 src/pages/index.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 19, done.
+  Counting objects: 100% (19/19), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (8/8), done.
+  Writing objects: 100% (12/12), 2.69 KiB | 918.00 KiB/s, done.
+  Total 12 (delta 5), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    711de84..4efdd4a  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### install pinia package for project develop
+
+  ```cmd
+  pnpm i pinia
+  /*out*******************************************************************************
+    ╭─────────────────────────────────────────────────────────────────╮
+    │                                                                 │
+    │                Update available! 7.30.3 → 8.1.1.                │
+    │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v8.1.1   │
+    │                Run "pnpm add -g pnpm" to update.                │
+    │                                                                 │
+    │     Follow @pnpmjs for updates: https://twitter.com/pnpmjs      │
+    │                                                                 │
+    ╰─────────────────────────────────────────────────────────────────╯
+
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +2
+  ++
+  Progress: resolved 435, reused 411, downloaded 2, added 2, done
+  node_modules/.pnpm/vue-demi@0.13.11_vue@3.2.47/node_modules/vue-demi: Running postinstall script, done in 696ms
+
+  dependencies:
+  + pinia 2.0.33
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 6.3s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### update pnpm again（7.30.3 → 8.1.1）
+
+  上面命令执行的时候，发现输出中含有 7.30.3 → 8.1.1 的字样。  
+  这是pnpm在安装并更新之后又有了新的版本。  
+  如果不作处理，之后每次执行 pnpm 命令都会输出该提示，会造成干扰。  
+  但是按照之前的经验，如果按照提示的命令更新，会因为没有将 pnpm 设置到全局变量之中而报错失败。  
+  仍然本着影响最小化的原则，改用 npm 命令更新 pnpm 。  
+  更新成功！通过版本命令也确认了的确更新到了最新版。  
+  而且更新之后跟之前项目代码备份比对一下，确认了 pnpm 作为安装在全局的工具不会改变项目代码。
+
+  ```cmd
+  npm update -g pnpm
+  /*out*******************************************************************************
+  changed 1 package in 6s
+  ********************************************************************************/
+  pnpm -v
+  /*out*******************************************************************************
+  8.1.1
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new pinia
+
+  ```cmd
+  mkdir D:\ASrc\hope3\src\stores
+  ~ VSCode new .\src\stores\counter.ts
+  /*in*******************************************************************************
+  import { defineStore } from 'pinia'
+
+  export const useCounterStore = defineStore('counter', () => {
+    const count = ref(0)
+    const doubleCount = computed(() => count.value * 2)
+    function increment() {
+      count.value++
+    }
+    return { count, doubleCount, increment }
+  })
+  ********************************************************************************/
+  ```
+
+---
+
+- ### mount pinia
+
+  ```cmd
+  ~ VSCode edit .\src\main.ts
+  /*edit*******************************************************************************
+  *import router from '@/router'
+  +import { createPinia } from 'pinia'
+  *const app = createApp(App)
+  +const pinia = createPinia()
+  *app.use(router)
+  +app.use(pinia)
+  ********************************************************************************/
+  ```
+
+---
+
+- ### try use pinia store
+
+  ```cmd
+  ~ VSCode edit .\src\components\HelloWorld.vue
+  /*edit*******************************************************************************
+  *<script setup lang="ts">
+  +  import { useCounterStore } from '@/stores/counter'
+  *  const count = ref(0)
+  +  const store = useCounterStore()
+  *    <button type="button" @click="count++">count is {{ count }}</button>
+  +    <button type="button" @click="store.increment()">pinia store {{ store.count }}</button>
+  +    <span>double {{ store.doubleCount }}</span>
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_025
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_025\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### update this doc（hope3_025）
+
+  更新现今为止的本文档。这一阶段完成了pinia的导入和初级使用验证。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_025）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_025: install & try pinia OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -3532,7 +3734,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_024: try vue-route OK"
+  git commit -m "hope3_025: install & try pinia OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
