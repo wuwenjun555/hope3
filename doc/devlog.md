@@ -3281,8 +3281,248 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/router/index.ts', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_020: add vue-route OK"
+  /*out*******************************************************************************
+  [main 873d565] hope3_020: add vue-route OK
+  8 files changed, 242 insertions(+), 4 deletions(-)
+  create mode 100644 src/router/index.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 23, done.
+  Counting objects: 100% (23/23), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (11/11), done.
+  Writing objects: 100% (13/13), 3.24 KiB | 663.00 KiB/s, done.
+  Total 13 (delta 8), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (8/8), completed with 8 local objects.
+  To https://github.com/wuwenjun555/hope3
+    34b109f..873d565  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/App.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/router/index.ts', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_020: add vue-route OK"
+  /*out*******************************************************************************
+  [master 711de84] hope3_020: add vue-route OK
+  8 files changed, 242 insertions(+), 4 deletions(-)
+  create mode 100644 src/router/index.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 23, done.
+  Counting objects: 100% (23/23), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (11/11), done.
+  Writing objects: 100% (13/13), 3.24 KiB | 828.00 KiB/s, done.
+  Total 13 (delta 8), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    d932110..711de84  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### try router-link demo
+
+  接下来对vue-route官网的入门例子进行了多组件路由验证。
+
+  ```cmd
+  ~ VSCode edit .\src\App.vue
+  /*edit*******************************************************************************
+  *  <h1>{{ appTitle }}</h1>
+  +  <router-link to="/home">Go to Home</router-link>
+  +  <router-link to="/about">Go to About</router-link>
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add multiple router
+
+  ```cmd
+  ~ VSCode edit .\src\router\index.ts
+  /*edit*******************************************************************************
+  *import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+  +
+  +const Home = { template: '<div>Home</div>' }
+  +const About = { template: '<div>About</div>' }
+  *export const routes: Array<RouteRecordRaw> = [
+  +  { path: '/home', component: Home },
+  +  { path: '/about', component: About },
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_021
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_021\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+- ### change router component template to render
+
+  但是上面的写法导致点击新追加的两个链接，画面并没有任何反应，而且控制台报出警告如下：  
+  >[Vue warn]: Component provided template option but runtime compilation is not supported in this build of Vue.
+  Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".
+
+  这个问题经过调查，是因为目前为止的配置都是对标生产环境，都是需要编译后直接发布的。  
+  但是`const Home = { template: '<div>Home</div>' }`这种模板的写法属于运行时编译的。  
+  如果保持这种写法需要在 vite.config.js 中配置如下：  
+  `export default defineConfig({ resolve:{ alias: { 'vue': 'vue/dist/vue.esm-bundler.js' } } })`  
+  但是为了尽量跟生产环境保持一致，将模板写法改为render函数写法。
+
+  ```cmd
+  ~ VSCode edit .\src\router\index.ts
+  /*edit*******************************************************************************
+  -const Home = { template: '<div>Home</div>' }
+  -const About = { template: '<div>About</div>' }
+  +// [DEL]: const Home = { template: '<div>Home</div>' }
+  +// [DEL]: const About = { template: '<div>About</div>' }
+  +const Home = {
+  +  render() {
+  +    return 'Home'
+  +  },
+  +}
+  +const About = {
+  +  render() {
+  +    return 'About'
+  +  },
+  +}
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_022
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_022\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### change router component render to *.vue
+
+  当然，从工程角度来说，每个组件最好都整理到一个 vue 文件中，用 import 引入这种统一组织形式。
+
+  ```cmd
+  mkdir D:\ASrc\hope3\src\pages
+  ~ VSCode new .\src\pages\Home.vue
+  /*in*******************************************************************************
+  <template>Home</template>
+  ********************************************************************************/
+  
+  ~ VSCode new .\src\pages\About.vue
+  /*in*******************************************************************************
+  <template>About</template>
+  ********************************************************************************/
+
+  ~ VSCode edit .\src\router\index.ts
+  /*edit*******************************************************************************
+  *import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+  +import Home from '@/pages/Home.vue'
+  +import About from '@/pages/About.vue'
+  -
+  -// [DEL]: const Home = { template: '<div>Home</div>' }
+  -// [DEL]: const About = { template: '<div>About</div>' }
+  -const Home = {
+  -  render() {
+  -    return 'Home'
+  -  },
+  -}
+  -const About = {
+  -  render() {
+  -    return 'About'
+  -  },
+  -}
+  ********************************************************************************/
+
+  pnpm run dev
+  cmd
+  start microsoft-edge:http://localhost:5173/
+  exit
+  Ctrl + C
+  ```
+
+---
+
+- ### bk hope3_023
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_023\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+- ### index pages vue
+
+  为了更加统一简短，将整个pages文件夹中的所有画面利用 index.ts 进行统一索引。
+
+  ```cmd
+  ~ VSCode new .\src\pages\index.ts
+  /*in*******************************************************************************
+  import Home from './Home.vue'
+  import About from './About.vue'
+
+  export default { Home, About }
+  ********************************************************************************/
+
+  ~ VSCode edit .\src\router\index.ts
+  /*edit*******************************************************************************
+  -import Home from '@/pages/Home.vue'
+  -import About from '@/pages/About.vue'
+  +import pages from '@/pages'
+  -  { path: '/home', component: Home },
+  -  { path: '/about', component: About },
+  +  { path: '/home', component: pages.Home },
+  +  { path: '/about', component: pages.About },
+  ********************************************************************************/
+  ```
+
+- ### bk hope3_024
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_024\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+- ### update this doc（hope3_024）
+
+  更新现今为止的本文档。这一阶段完成了vue-router的初级使用验证。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_024）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_024: try vue-route OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -3292,7 +3532,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_020: add vue-route OK"
+  git commit -m "hope3_024: try vue-route OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
