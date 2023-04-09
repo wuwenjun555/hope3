@@ -4,6 +4,7 @@ import { resolve } from 'path'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 const pathResolve = (dir: string) => resolve(__dirname, dir)
 
@@ -19,8 +20,10 @@ export default ({ command, mode }) => {
         // 使用Typescript则必须设置dts。
         // 设置为在'src/'目录下生成类型文件auto-imports.d.ts解决ts报错，默认是当前目录('./'，即根目录)
         dts: 'src/components.d.ts',
+        resolvers: [ElementPlusResolver()],
       }),
       AutoImport({
+        resolvers: [ElementPlusResolver()],
         // global imports to register
         imports: [
           // presets: https://github.com/unjs/unimport/blob/main/src/presets/index.ts

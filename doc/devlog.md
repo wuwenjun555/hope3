@@ -3707,7 +3707,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
 
 - ### update this doc（hope3_025）
 
-  更新现今为止的本文档。这一阶段完成了pinia的导入和初级使用验证。
+  更新现今为止的本文档。这一阶段完成了 pinia 的导入和初级使用验证。
 
   ```cmd
   ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
@@ -3723,8 +3723,447 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   cd D:\ASrc\github\hope3
   git add .
   /*out*******************************************************************************
+  warning: in the working copy of '.eslintrc-auto-import.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/auto-import.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components/HelloWorld.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/stores/counter.ts', LF will be replaced by CRLF the next time Git touches it
   ********************************************************************************/
   git commit -m "hope3_025: install & try pinia OK"
+  /*out*******************************************************************************
+  [main 98db53a] hope3_025: install & try pinia OK
+  6 files changed, 255 insertions(+), 1 deletion(-)
+  create mode 100644 src/stores/counter.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 21, done.
+  Counting objects: 100% (21/21), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (9/9), done.
+  Writing objects: 100% (12/12), 2.90 KiB | 594.00 KiB/s, done.
+  Total 12 (delta 6), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+  To https://github.com/wuwenjun555/hope3
+    d4dd9a4..98db53a  main -> main
+  ********************************************************************************/
+  cd D:\ASrc\gitee\hope3
+  git add .
+  /*out*******************************************************************************
+  warning: in the working copy of '.eslintrc-auto-import.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'pnpm-lock.yaml', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/auto-import.d.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/components/HelloWorld.vue', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+  warning: in the working copy of 'src/stores/counter.ts', LF will be replaced by CRLF the next time Git touches it
+  ********************************************************************************/
+  git commit -m "hope3_025: install & try pinia OK"
+  /*out*******************************************************************************
+  [master 646fbcb] hope3_025: install & try pinia OK
+  6 files changed, 255 insertions(+), 1 deletion(-)
+  create mode 100644 src/stores/counter.ts
+  ********************************************************************************/
+  git push
+  /*out*******************************************************************************
+  Enumerating objects: 21, done.
+  Counting objects: 100% (21/21), done.
+  Delta compression using up to 4 threads
+  Compressing objects: 100% (9/9), done.
+  Writing objects: 100% (12/12), 2.90 KiB | 991.00 KiB/s, done.
+  Total 12 (delta 6), reused 0 (delta 0), pack-reused 0
+  remote: Powered by GITEE.COM [GNK-6.4]
+  To https://gitee.com/wuwenjun55555/hope3
+    4efdd4a..646fbcb  master -> master
+  ********************************************************************************/
+  cd D:\ASrc\hope3
+  ```
+
+---
+
+- ### install element-plus package for project develop
+
+  ```cmd
+  pnpm i element-plus
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +55 -35
+  +++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------------------------------
+  Downloading registry.npmjs.org/element-plus/2.3.2: 7.94 MB/7.94 MB, done
+  Progress: resolved 454, reused 413, downloaded 19, added 33, done
+  node_modules/.pnpm/vue-demi@0.13.11_vue@3.2.47/node_modules/vue-demi: Running postinstall script, done in 839ms
+
+  dependencies:
+  + element-plus 2.3.2
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 22.2s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### edit .\vite.config.ts for element-plus by unplugin-vue-components
+
+```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  *import Components from 'unplugin-vue-components/vite'
+  +import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+  *        dts: 'src/components.d.ts',
+  +        resolvers: [ElementPlusResolver()],
+  *      AutoImport({
+  +        resolvers: [ElementPlusResolver()],
+  ********************************************************************************/
+  ```
+
+---
+
+- ### [Deprecated] install unplugin-element-plus package for project develop
+
+  安装插件 unplugin-element-plus 来导入样式。  
+  安装后该插件会做如下自动转换：  
+  `import { ElButton } from 'element-plus'`  
+  ↓ ↓ ↓ ↓ ↓ ↓  
+  `import { ElButton } from 'element-plus'`
+  `import 'element-plus/es/components/button/style/css'`
+
+  ```cmd
+  pnpm i unplugin-element-plus -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: +3
+  +++
+  Progress: resolved 457, reused 432, downloaded 3, added 3, done
+
+  devDependencies:
+  + unplugin-element-plus 0.7.0
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 5.1s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### [Deprecated] edit .\vite.config.ts for unplugin-element-plus
+
+  ```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  *import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+  +import ElementPlus from 'unplugin-element-plus/vite'
+  *      createHtmlPlugin(),
+  +      ElementPlus({
+  +        /*
+  +          import { ElButton } from 'element-plus'
+  +          // useSource: false  ↓ ↓ ↓ ↓ ↓ ↓
+  +          import { ElButton } from 'element-plus'
+  +          import 'element-plus/es/components/button/style/css'
+  +          // useSource: true  ↓ ↓ ↓ ↓ ↓ ↓
+  +          import { ElButton } from 'element-plus'
+  +          import 'element-plus/es/components/button/style/index'
+  +        */
+  +        useSource: false, // default: ?
+  +        /*
+  +          一般这个是用不到的，不过作为一个通用选项，还是暴露了出来。
+  +          如果有用到这个的结构一定要和 ElementPlus 的输出包结构一致，
+  +          详见 https://unpkg.com/element-plus@2.3.3/dist/index.full.js
+  +         */
+  +        // lib: 'element-plus', // default: 'element-plus'
+  +        /*
+  +          type Format = 'esm' | 'cjs'
+  +          esm 对应 [lib]/es/components/*
+  +          cjs 对应 [lib]/lib/components/*
+  +          /es 对应 ES Module 输出
+  +          /lib 对应 CommonJS 的输出
+  +        */
+  +        format: 'esm', // default: 'esm'
+  +        /*
+  +          type Prefix = string
+  +          // prefix = Al
+  +          import { AlButton } from 'xx-lib'
+  +        */
+  +        //prefix: 'El', // default: 'El'
+  +        /*
+  +          替换默认语言，你可以查看所有语言列表。
+  +          详见 https://github.com/element-plus/element-plus/tree/dev/packages/locale/lang
+  +          常用：en，ja，zh-cn
+  +        */
+  +        // defaultLocale: 'zh-cn', // default: 'en'
+  +      }),
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_026
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_026\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### bk vite init App.vue to Try.vue
+
+  在做正式的画面之前，先把最初 vite 生成的示例 App.vue 中的内容转移到 Try.vue
+  此画面一方面留作纪念，另一方面用作之后的技术验证。
+
+  ```cmd
+  move D:\ASrc\hope3\src\App.vue D:\ASrc\hope3\src\pages\Try.vue
+  ```
+
+  ```vue
+  ~ VSCode edit .\src\pages\Try.vue
+  /*edit*******************************************************************************
+  -      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+  +      <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
+  ********************************************************************************/
+  ```
+
+  ```vue
+  ~ VSCode edit .\src\pages\index.ts
+  /*edit*******************************************************************************
+  *import About from './About.vue'
+  +import Try from './Try.vue'
+  -export default { Home, About }
+  +export default { Home, About, Try }
+  ********************************************************************************/
+  ```
+
+  ```vue
+  ~ VSCode edit .\src\router\index.ts
+  /*edit*******************************************************************************
+  *  { path: '/about', component: pages.About },
+  +  { path: '/try', name: 'try', component: pages.Try },
+  ********************************************************************************/
+  ```
+
+  ```vue
+  ~ VSCode new .\src\App.vue
+  /*in*******************************************************************************
+  <script setup lang="ts">
+    import router from '@/router'
+    router.replace('try')
+  </script>
+
+  <template>
+    <router-view />
+  </template>
+  ********************************************************************************/
+  ```
+
+- ### bk hope3_027
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_027\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+---
+
+- ### [Deprecated] uninstall unplugin-element-plus package for project develop
+
+  之前安装的 unplugin-element-plus 在官方文档的《手动导入》章节，而不是《按需导入》，需要删除。
+
+  ```cmd
+  pnpm un unplugin-element-plus -D
+  /*out*******************************************************************************
+   WARN  deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+  Packages: -3
+  ---
+  Progress: resolved 454, reused 432, downloaded 0, added 0, done
+
+  devDependencies:
+  - unplugin-element-plus 0.7.0
+
+   WARN  Issues with peer dependencies found
+  .
+  └─┬ stylelint-less 1.0.6
+    └── ✕ unmet peer stylelint@^14.9.1: found 15.3.0
+
+  Done in 5s
+  ********************************************************************************/
+  ```
+
+---
+
+- ### [Deprecated] edit .\vite.config.ts for uninstall unplugin-element-plus
+
+  ```typescript
+  ~ VSCode edit .\vite.config.ts
+  /*edit*******************************************************************************
+  -import ElementPlus from 'unplugin-element-plus/vite'
+  -// [Ref]: https://github.com/element-plus/unplugin-element-plus/blob/main/README.zh-CN.md
+  -      ElementPlus({
+  -        /*
+  -          import { ElButton } from 'element-plus'
+  -          // useSource: false  ↓ ↓ ↓ ↓ ↓ ↓
+  -          import { ElButton } from 'element-plus'
+  -          import 'element-plus/es/components/button/style/css'
+  -          // useSource: true  ↓ ↓ ↓ ↓ ↓ ↓
+  -          import { ElButton } from 'element-plus'
+  -          import 'element-plus/es/components/button/style/index'
+  -        */
+  -        useSource: false, // default: ?
+  -        /*
+  -          一般这个是用不到的，不过作为一个通用选项，还是暴露了出来。
+  -          如果有用到这个的结构一定要和 ElementPlus 的输出包结构一致，
+  -          详见 https://unpkg.com/element-plus@2.3.3/dist/index.full.js
+  -         */
+  -        // lib: 'element-plus', // default: 'element-plus'
+  -        /*
+  -          type Format = 'esm' | 'cjs'
+  -          esm 对应 [lib]/es/components/*
+  -          cjs 对应 [lib]/lib/components/*
+  -          /es 对应 ES Module 输出
+  -          /lib 对应 CommonJS 的输出
+  -        */
+  -        format: 'esm', // default: 'esm'
+  -        /*
+  -          type Prefix = string
+  -          // prefix = Al
+  -          import { AlButton } from 'xx-lib'
+  -        */
+  -        //prefix: 'El', // default: 'El'
+  -        /*
+  -          替换默认语言，你可以查看所有语言列表。
+  -          详见 https://github.com/element-plus/element-plus/tree/dev/packages/locale/lang
+  -          常用：en，ja，zh-cn
+  -        */
+  -        // defaultLocale: 'zh-cn', // default: 'en'
+  -      }),
+  ********************************************************************************/
+  ```
+
+---
+
+- ### new login page
+
+  ```cmd
+  mkdir D:\ASrc\hope3\src\pages\account
+  ```
+
+  这里参照了Element Plus官网文档 Form 组件的例子做成。
+
+  ```vue
+  ~ VSCode new .\src\pages\account\Login.vue
+  /*in*******************************************************************************
+  <script setup lang="ts">
+    import type { FormInstance } from 'element-plus'
+    import router from '@/router'
+
+    const formRef = ref<FormInstance>()
+    const loginInput = reactive({
+      userid: '',
+      pwd: '',
+    })
+
+    const signUp = (formEl: FormInstance | undefined) => {
+      if (!formEl) return
+      router.replace('home')
+    }
+
+    const reset = (formEl: FormInstance | undefined) => {
+      if (!formEl) return
+      formEl.resetFields()
+    }
+  </script>
+
+  <template>
+    <div>login</div>
+    <el-form ref="formRef" :model="loginInput" label-position="top" size="large">
+      <el-form-item label="Account ID">
+        <el-input v-model="loginInput.userid"></el-input>
+      </el-form-item>
+      <el-form-item label="Password">
+        <el-input v-model="loginInput.pwd"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="reset(formRef)">Reset</el-button>
+        <el-button @click="signUp(formRef)" type="primary">Sign In</el-button>
+      </el-form-item>
+    </el-form>
+  </template>
+  ********************************************************************************/
+  ```
+
+  ```vue
+  ~ VSCode edit .\src\pages\index.ts
+  /*edit*******************************************************************************
+  +import Login from './account/Login.vue'
+  -export default { Home, About, Try }
+  +export default { Login, Home, About, Try }
+  ********************************************************************************/
+  ```
+
+---
+
+- ### add login page route
+
+  在这里除了追加登录画面的路由以外，为了让代码更加规范化，对所有路由都追加 name 属性。
+
+  ```vue
+  ~ VSCode edit .\src\router\index.ts
+  /*edit*******************************************************************************
+  *export const routes: Array<RouteRecordRaw> = [
+  +  { path: '/login', name: 'login', component: pages.Login },
+  -  { path: '/home', component: pages.Home },
+  +  { path: '/home', name: 'home', component: pages.Home },
+  -  { path: '/about', component: pages.About },
+  +  { path: '/about', name: 'about', component: pages.About },
+  ********************************************************************************/
+  ```
+
+- ### change login page to be init page
+
+  ```vue
+  ~ VSCode edit .\src\App.vue
+  /*edit*******************************************************************************
+  -  router.replace('try')
+  +  router.replace('login')
+  ********************************************************************************/
+  ```
+
+---
+
+- ### bk hope3_028
+
+  ```cmd
+  xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_028\ /e /exclude:D:\ASrc\bk\bk-hope3-exclude.txt
+  ```
+
+- ### update this doc（hope3_028）
+
+  更新现今为止的本文档。这一阶段完成了 element-plus 的导入。  
+  参照官方文档做成了最简易的登录画面，并结合 vue-route 完成了在按下登录按钮后跳转到 Home 画面的初级使用验证。
+
+  ```cmd
+  ~ VSCode update this file to D:\ASrc\hope3\doc\devlog.md
+  ```
+
+---
+
+- ### git commit & push hope3（hope3_028）
+
+  ```cmd
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\github\hope3
+  ~ WinMerge D:\ASrc\hope3 -> D:\ASrc\gitee\hope3
+  cd D:\ASrc\github\hope3
+  git add .
+  /*out*******************************************************************************
+  ********************************************************************************/
+  git commit -m "hope3_028: install & try element-plus OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
@@ -3734,7 +4173,7 @@ xcopy D:\ASrc\hope3 D:\ASrc\bk\hope3_010\ /e /exclude:D:\ASrc\bk\bk-hope3-exclud
   git add .
   /*out*******************************************************************************
   ********************************************************************************/
-  git commit -m "hope3_025: install & try pinia OK"
+  git commit -m "hope3_028: install & try element-plus OK"
   /*out*******************************************************************************
   ********************************************************************************/
   git push
